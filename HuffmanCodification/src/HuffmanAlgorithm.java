@@ -4,11 +4,11 @@ import java.util.*;
 public class HuffmanAlgorithm {
 
     public static void main(String[] args) throws IOException {
-        // Crear una instancia de file_managment para leer y procesar el archivo
+               // Crear una instancia de file_managment para leer y procesar el archivo
         file_managment f = new file_managment();
         // Obtener una PriorityQueue de NodeHuffman a partir del archivo
         PriorityQueue<NodeHuffman> q = f.rwfile("ASCIILIBRO.txt");
-        int totalchrs =q.size();
+       // int totalchrs =q.size();
 
         long start = System.nanoTime();
         // Imprimir encabezado de la tabla
@@ -18,9 +18,10 @@ public class HuffmanAlgorithm {
         encodig(q);
         long end = System.nanoTime();
         double timeInSeconds = (double) (end-start)/1000000000;
-        System.out.println("time in seconds : "+ timeInSeconds);
-        double velocity = timeInSeconds/totalchrs;
-        System.out.println("velocidad nominal: "+ velocity);
+        System.out.println("time in seconds : "+ timeInSeconds+ "Segundos");
+        double velocity =  f.lengthFile/timeInSeconds;
+        System.out.println("velocidad nominal: "+ velocity+ " caracterPorSegundo");
+    
     }
 
     public static void encodig(PriorityQueue<NodeHuffman> q) {
