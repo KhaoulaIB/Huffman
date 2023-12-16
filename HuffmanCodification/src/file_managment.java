@@ -11,7 +11,7 @@ public class file_managment {
 
     BufferedReader br;
     PriorityQueue<NodeHuffman> q;
-
+    long lengthFile;
 
 
 
@@ -54,6 +54,7 @@ public class file_managment {
                 line = br.readLine();
                 while (br.ready()) {
                     for (int i = 0; i < line.length(); i++) {
+                        lengthFile++;
                         //consideramos el mismo caracter tanto en Mayuscula como minusicula
                         char c = Character.toLowerCase(line.charAt(i));
                         if (Character.isAlphabetic(c)){
