@@ -17,13 +17,11 @@ public class HuffmanAlgorithm {
 
         // Invocar la función encodig para construir el árbol de Huffman y mostrar las codificaciones
         encodig(q);
-
+        //Imprimir la longitud media de las palabras codificadas
         System.out.println("La longitud media es : "+ (double) longitud_media/58);
     }
 
     public static void encodig(PriorityQueue<NodeHuffman> q) {
-        // Imprimir la PriorityQueue para visualizar los elementos en cada paso
-       // System.out.println(Arrays.toString(q.toArray()));
 
         // Inicializar el nodo raíz
         NodeHuffman root = null;
@@ -33,7 +31,7 @@ public class HuffmanAlgorithm {
             // Extraer el primer nodo mínimo
             NodeHuffman x = q.peek();
             q.poll();
-            longitud_media++;
+            
             // Extraer el segundo nodo mínimo
             NodeHuffman y = q.peek();
             q.poll();
@@ -71,7 +69,7 @@ public class HuffmanAlgorithm {
         if (root.left == null && root.right == null) {
             // 'c' es el carácter en el nodo
             System.out.println(root.character + "\t" + root.frequency + "\t\t" + ":" + s);
-            longitud_media+=s.length();
+            longitud_media+=s.length();//incrementar la longitud media
             return;
         }
 
