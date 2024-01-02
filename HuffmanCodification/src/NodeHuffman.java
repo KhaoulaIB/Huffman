@@ -1,11 +1,15 @@
+/*
+*Clase que representa un nodo de Huffman con sus correspondientes atributos.
+*/
 public class NodeHuffman implements Comparable<NodeHuffman> {
 
-
+        //Cada nodo viene definido por el caracter que representa, la frecuencia de dicho caracter, y sus hijos izequirdo y derecha.
         char character;
         int frequency;
         NodeHuffman left;
         NodeHuffman right;
 
+        //Getters & Setters
     public NodeHuffman getLeft() {
         return left;
     }
