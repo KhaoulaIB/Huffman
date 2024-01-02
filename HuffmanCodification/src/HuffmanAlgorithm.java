@@ -1,14 +1,15 @@
 import java.io.IOException;
 import java.util.*;
+@author : KIB
 
 public class HuffmanAlgorithm {
 
+    public static int longitud_media = 0;
     public static void main(String[] args) throws IOException {
-               // Crear una instancia de file_managment para leer y procesar el archivo
+        // Crear una instancia de file_managment para leer y procesar el archivo
         file_managment f = new file_managment();
         // Obtener una PriorityQueue de NodeHuffman a partir del archivo
-        PriorityQueue<NodeHuffman> q = f.rwfile("ASCIILIBRO.txt");
-       // int totalchrs =q.size();
+        PriorityQueue<NodeHuffman> q = f.rwfile("tmp.txt");
 
         long start = System.nanoTime();
         // Imprimir encabezado de la tabla
@@ -16,17 +17,13 @@ public class HuffmanAlgorithm {
 
         // Invocar la función encodig para construir el árbol de Huffman y mostrar las codificaciones
         encodig(q);
-        long end = System.nanoTime();
-        double timeInSeconds = (double) (end-start)/1000000000;
-        System.out.println("time in seconds : "+ timeInSeconds+ "Segundos");
-        double velocity =  f.lengthFile/timeInSeconds;
-        System.out.println("velocidad nominal: "+ velocity+ " caracterPorSegundo");
-    
+
+        System.out.println("La longitud media es : "+ (double) longitud_media/58);
     }
 
     public static void encodig(PriorityQueue<NodeHuffman> q) {
         // Imprimir la PriorityQueue para visualizar los elementos en cada paso
-        System.out.println(Arrays.toString(q.toArray()));
+       // System.out.println(Arrays.toString(q.toArray()));
 
         // Inicializar el nodo raíz
         NodeHuffman root = null;
@@ -36,7 +33,7 @@ public class HuffmanAlgorithm {
             // Extraer el primer nodo mínimo
             NodeHuffman x = q.peek();
             q.poll();
-
+            longitud_media++;
             // Extraer el segundo nodo mínimo
             NodeHuffman y = q.peek();
             q.poll();
@@ -64,6 +61,7 @@ public class HuffmanAlgorithm {
     }
 
     public static void printCode(NodeHuffman root, String s) {
+
         // Caso base: si el nodo es nulo, retornar
         if (root == null) {
             return;
@@ -73,7 +71,7 @@ public class HuffmanAlgorithm {
         if (root.left == null && root.right == null) {
             // 'c' es el carácter en el nodo
             System.out.println(root.character + "\t" + root.frequency + "\t\t" + ":" + s);
-
+            longitud_media+=s.length();
             return;
         }
 
