@@ -11,9 +11,9 @@ public class file_managment {
 
     BufferedReader br;
     PriorityQueue<NodeHuffman> q;
+
+
     long lengthFile;
-
-
 
 
     public int chaExists(ArrayList<NodeHuffman> list, char c) {
@@ -34,11 +34,9 @@ public class file_managment {
             while ((currentChar = reader.read()) != -1) {
                 char character = (char) currentChar;
 
-                // Verificar si el carácter es alfabético y minúscula
-                if (Character.isAlphabetic(character) && Character.isLowerCase(character)) {
-                    // Escribir el carácter en el archivo de salida
+
                     writer.write(character);
-                }
+             //   }
             }
         }
     }
@@ -56,15 +54,16 @@ public class file_managment {
                     for (int i = 0; i < line.length(); i++) {
                         lengthFile++;
                         //consideramos el mismo caracter tanto en Mayuscula como minusicula
-                        char c = Character.toLowerCase(line.charAt(i));
-                        if (Character.isAlphabetic(c)){
+                       // char c = Character.toLowerCase(line.charAt(i));
+                        char c = line.charAt(i);
+                       // if (Character.isAlphabetic(c)){
                         int index = chaExists(caracteres, c);
                         if (index != -1) {
                             int tmp = caracteres.get(index).frequency + 1;   //guardar frecuencia anterior
                             caracteres.set(index, new NodeHuffman(c, tmp));
                         } else {
                             caracteres.add(new NodeHuffman(c, 1));  //añadir nuevo caracter
-                        }
+                       // }
                         }
 
                     }
@@ -83,11 +82,6 @@ public class file_managment {
         }
 
 
-   /* static class MyComparator implements Comparator<NodeHuffman> {
-        public int compare(NodeHuffman x, NodeHuffman y) {
-            return x.frequency - y.frequency;
-        }
-    }*/
 
 
 }
