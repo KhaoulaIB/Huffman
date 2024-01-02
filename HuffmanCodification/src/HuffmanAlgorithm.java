@@ -9,7 +9,7 @@ public class HuffmanAlgorithm {
         // Crear una instancia de file_managment para leer y procesar el archivo
         file_managment f = new file_managment();
         // Obtener una PriorityQueue de NodeHuffman a partir del archivo
-        PriorityQueue<NodeHuffman> q = f.rwfile("tmp.txt");
+        PriorityQueue<NodeHuffman> q = f.rwfile("libro.txt");
 
         long start = System.nanoTime();
         // Imprimir encabezado de la tabla
