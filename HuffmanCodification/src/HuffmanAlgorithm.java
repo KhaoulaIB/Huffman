@@ -5,21 +5,20 @@ import java.util.*;
 
 public class HuffmanAlgorithm {
 
-    public static int longitud_media = 0;
+     public static int longitud_media = 0;
     public static void main(String[] args) throws IOException {
         // Crear una instancia de file_managment para leer y procesar el archivo
         file_managment f = new file_managment();
         // Obtener una PriorityQueue de NodeHuffman a partir del archivo
         PriorityQueue<NodeHuffman> q = f.rwfile("libro.txt");
-
-        long start = System.nanoTime();
+        long Numero_Caracteres = q.size();
         // Imprimir encabezado de la tabla
         System.out.println("Character \t Frecuencia\t\t Codificación");
 
         // Invocar la función encodig para construir el árbol de Huffman y mostrar las codificaciones
         encodig(q);
         //Imprimir la longitud media de las palabras codificadas
-        System.out.println("La longitud media es : "+ (double) longitud_media/58);
+        System.out.println("La longitud media es : "+ (double) longitud_media/Numero_Caracteres);
     }
 
     public static void encodig(PriorityQueue<NodeHuffman> q) {
