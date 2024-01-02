@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.util.*;
-@author : KIB
+/**@author : KIB
+*/
 
 public class HuffmanAlgorithm {
 
