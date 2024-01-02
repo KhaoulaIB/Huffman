@@ -15,7 +15,9 @@ public class file_managment {
 
     long lengthFile;
 
-
+/*
+* Devuelve true si el caracter 'c' esta en list. False en caso contrario.
+*/
     public int chaExists(ArrayList<NodeHuffman> list, char c) {
             for (int i = 0; i < list.size(); i++) {
                 if (list.get(i).getCharacter() == c) {
@@ -26,21 +28,10 @@ public class file_managment {
 
         }
 
-    public static void filtrarCaracteresAlfabeticos(String inputFile, String outputFile) throws IOException {
-        try (BufferedReader reader = new BufferedReader(new FileReader(inputFile));
-             BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile))) {
-
-            int currentChar;
-            while ((currentChar = reader.read()) != -1) {
-                char character = (char) currentChar;
-
-
-                    writer.write(character);
-             //   }
-            }
-        }
-    }
-
+       /*
+        * Metodo que lee los caracteres desde el fichero libro.txt, calcula sus frecuencias con la ayuda del metodo charExists
+        * y los guarda en el riorityQueue<NodeHuffman> q.
+        */
         public PriorityQueue<NodeHuffman> rwfile(String nameFile) {
 
             try {
